@@ -1,0 +1,109 @@
+/* Navbar */
+.custom-navbar {
+    background: rgba(255,255,255,0.95);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.custom-navbar .logo { height: 40px; width: 30px; }
+.logo-head { font-size: 14px; }
+.nav-mark { letter-spacing: 3px; }
+.custom-navbar .nav-link {
+    color: black;
+    font-size: 20px;
+    font-weight: 500;
+}
+.custom-navbar .nav-link:hover { color: #34ce58; }
+
+/* Hero */
+.hero {
+    background: url("images/bg-image.png") top/cover no-repeat;
+    min-height: 100vh;
+    padding-top: 70px; /* space for navbar */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
+    position: relative;
+}
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+}
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+    text-align: center;
+}
+.hero h1 { font-size: 3.5rem; font-weight: bold; margin-bottom: 1rem; }
+.hero p { font-size: 1.2rem; margin-bottom: 1.5rem; }
+
+/* Button */
+.btn-primary {
+    background: #28a745;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1rem;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+.btn-primary:hover { background: #1e7e34; }
+
+
+
+.about-section {
+            padding: 60px 0;
+            background-color: #f9f9f9;
+        }
+        .about-section h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #2c5e1a;
+        }
+        .about-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+        .about-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        
+
+.card img {
+            height: 300px;
+            object-fit: cover;
+        }
+        .page-title {
+            text-align: center;
+            margin: 40px 0;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+         .product-card {
+        border-radius: 15px;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .product-card img {
+        height: 300px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .product-card:hover img {
+        transform: scale(1.05);
+    }
