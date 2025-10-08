@@ -15,8 +15,9 @@
 
 /* Hero */
 .hero {
-    background: url("images/bg-image.png") top/cover no-repeat;
-    min-height: 100vh;
+   background: url("images/bg-image.png") no-repeat top;
+    background-size: cover;
+   min-height: 100vh;
     padding-top: 70px; /* space for navbar */
     display: flex;
     align-items: center;
@@ -108,4 +109,49 @@
         transform: scale(1.05);
     }
 
-    
+.smart-services {
+  background-color: #f7fdf7;
+  border-top: 2px solid #e0f2e9;
+  border-bottom: 2px solid #e0f2e9;
+}
+
+.smart-services .service-box {
+  border-radius: 15px;
+  background: #fff;
+  max-width: 300px; /* Card width */
+  margin: auto;
+  transition: all 0.3s ease;
+}
+
+.smart-services .service-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.smart-services h2 {
+  font-size: 2rem;
+  color: #2d6a4f;
+}
+
+.smart-services .service-img {
+  width: 100%;
+  height: 180px; /* Fixed height for all cards */
+  object-fit: cover;
+}
+
+.smart-services button {
+  border-radius: 25px;
+  padding: 8px 25px;
+}
+
+@media (max-width: 1200px) {
+  .smart-services .service-box {
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .smart-services .service-box {
+    max-width: 100%;
+  }
+}
