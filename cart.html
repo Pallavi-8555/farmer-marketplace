@@ -84,37 +84,54 @@
         const cartItemsContainer = document.getElementById('cart-items');
         const grandTotalElement = document.getElementById('grand-total');
 
-        function renderCart() {
-            cartItemsContainer.innerHTML = '';
-            let grandTotal = 0;
+       function renderCart() {
+    cartItemsContainer.innerHTML = '';
+    let grandTotal = 0;
 
-            cart.forEach((item, index) => {
-                const total = item.price * item.quantity;
-                grandTotal += total;
+    if (cart.length === 0) {
+        // Show message if cart is empty
+        cartItemsContainer.innerHTML = `
+            <tr>
+                <td colspan="5" class="text-center text-muted">Your cart is empty.</td>
+            </tr>
+        `;
+        grandTotalElement.textContent = 0;
+        // Disable Proceed button
+        document.querySelector('.btn-primary').classList.add('disabled');
+        return;
+    } else {
+        // Enable Proceed button
+        document.querySelector('.btn-primary').classList.remove('disabled');
+    }
 
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                <td class="d-flex align-items-center">
-                    <img src="${item.image}" style="width:50px; height:50px; object-fit:cover; margin-right:10px;">
-                    ${item.name}
-                </td>
-                <td>${item.price}</td>
-                <td>
-                    <button onclick="changeQty(${index}, -1)" class="btn btn-sm btn-secondary">-</button>
-                    <span class="mx-2">${item.quantity}</span>
-                    <button onclick="changeQty(${index}, 1)" class="btn btn-sm btn-secondary">+</button>
-                </td>
-                <td>${total}</td>
-                <td>
-                    <button onclick="removeItem(${index})" class="btn btn-sm btn-danger">Delete</button>
-                </td>
-            `;
-                cartItemsContainer.appendChild(row);
-            });
+    cart.forEach((item, index) => {
+        const total = item.price * item.quantity;
+        grandTotal += total;
 
-            grandTotalElement.textContent = grandTotal;
-            localStorage.setItem('cart', JSON.stringify(cart));
-        }
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td class="d-flex align-items-center">
+                <img src="${item.image}" style="width:50px; height:50px; object-fit:cover; margin-right:10px;">
+                ${item.name}
+            </td>
+            <td>${item.price}</td>
+            <td>
+                <button onclick="changeQty(${index}, -1)" class="btn btn-sm btn-secondary">-</button>
+                <span class="mx-2">${item.quantity}</span>
+                <button onclick="changeQty(${index}, 1)" class="btn btn-sm btn-secondary">+</button>
+            </td>
+            <td>${total}</td>
+            <td>
+                <button onclick="removeItem(${index})" class="btn btn-sm btn-danger">Delete</button>
+            </td>
+        `;
+        cartItemsContainer.appendChild(row);
+    });
+
+    grandTotalElement.textContent = grandTotal;
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
 
         function changeQty(index, delta) {
             cart[index].quantity += delta;
